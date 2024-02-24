@@ -1,0 +1,48 @@
+/* CSS for basic styling */
+body {
+    font-family: Arial, sans-serif;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* CSS for mandate mark */
+.mandate-mark {
+    color: rgb(250, 3, 3);
+    font-weight: bold;
+}
+
+/* CSS for text boxes */
+input[type="text"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+}

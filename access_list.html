@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access List</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h2>Access List</h2>
+    <ul id="optionsList">
+        <!-- Options will be dynamically generated here -->
+    </ul>
+    <button onclick="closePopup()">Close</button>
+
+    <script>
+        function closePopup() {
+            window.close();
+        }
+
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var selectedOption = urlParams.get('option');
+            var optionsList = document.getElementById('optionsList');
+
+            // List of options based on the selected option
+            var options = [];
+            if (selectedOption === 'numbers') {
+                options = ['One', 'Two', 'Three', 'Four', 'Five'];
+            } else if (selectedOption === 'human') {
+                options = ['Adam', 'Bella', 'Charlie', 'David', 'Emily'];
+            } else if (selectedOption === 'animal') {
+                options = ['Ant', 'Bear', 'Cat', 'Dog', 'Elephant'];
+            }
+            // Add more options based on other selections as needed
+
+            // Populate the options list
+            options.forEach(function(option) {
+                var li = document.createElement('li');
+                var checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                var label = document.createElement('label');
+                label.textContent = option;
+                li.appendChild(checkbox);
+                li.appendChild(label);
+                optionsList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>

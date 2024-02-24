@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access List Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Access List Page</h1>
+    <form>
+        <label for="apple">Apple:</label><span class="mandate-mark">*</span><br>
+        <input type="text" id="apple" name="apple" oninput="validateForm()"><br>
+        <label for="banana">Banana:</label><span class="mandate-mark">*</span><br>
+        <input type="text" id="banana" name="banana" oninput="validateForm()"><br>
+        <label for="cherry">Cherry:</label><span class="mandate-mark">*</span><br>
+        <input type="text" id="cherry" name="cherry" oninput="validateForm()"><br>
+        <label for="dropdown">Dropdown:</label><br>
+        <select id="dropdown" name="dropdown" onchange="updateOptions()">
+            <option value="default">Select an option</option>
+            <option value="numbers">Numbers</option>
+            <option value="human">Human Names</option>
+            <option value="animal">Animal Names</option>
+        </select><br><br>
+        <button id="accessListBtn" onclick="openPopup()" disabled>Access List</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            var apple = document.getElementById("apple").value;
+            var banana = document.getElementById("banana").value;
+            var cherry = document.getElementById("cherry").value;
+            var accessListBtn = document.getElementById("accessListBtn");
+            var mandateMarks = document.getElementsByClassName("mandate-mark");
+
+            if (apple !== "" && banana !== "" && cherry !== "") {
+                accessListBtn.disabled = false;
+                for (var i = 0; i < mandateMarks.length; i++) {
+                    mandateMarks[i].style.color = "black";
+                }
+            } else {
+                accessListBtn.disabled = true;
+                for (var i = 0; i < mandateMarks.length; i++) {
+                    mandateMarks[i].style.color = "red";
+                }
+            }
+        }
+
+        function updateOptions() {
+            var dropdown = document.getElementById("dropdown");
+            var selectedOption = dropdown.options[dropdown.selectedIndex].value;
+            var accessListBtn = document.getElementById("accessListBtn");
+            accessListBtn.disabled = false;
+            accessListBtn.dataset.option = selectedOption; // Store selected option in dataset
+        }
+
+        function openPopup() {
+            var accessListBtn = document.getElementById("accessListBtn");
+            var selectedOption = accessListBtn.dataset.option;
+            var url = 'access_list.html?option=' + selectedOption;
+            window.open(url, '_blank', 'width=400,height=400');
+        }
+    </script>
+</body>
+</html>
