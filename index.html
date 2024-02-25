@@ -9,31 +9,31 @@
 <body>
     <h1>Access List Page</h1>
     <form>
-        <label for="apple">Apple:</label><span class="mandate-mark">*</span><br>
-        <input type="text" id="apple" name="apple" oninput="validateForm()"><br>
-        <label for="banana">Banana:</label><span class="mandate-mark">*</span><br>
-        <input type="text" id="banana" name="banana" oninput="validateForm()"><br>
-        <label for="cherry">Cherry:</label><span class="mandate-mark">*</span><br>
-        <input type="text" id="cherry" name="cherry" oninput="validateForm()"><br>
+        <label for="Name">Name:</label><span class="mandate-mark">*</span>
+        <input type="text" id="Name" name="Name" oninput="validateForm()"><br>
+        <label for="Email">Email:</label><span class="mandate-mark">*</span>
+        <input type="text" id="Email" name="Email" oninput="validateForm()"><br>
+        <label for="PID">PID:</label><span class="mandate-mark">*</span>
+        <input type="text" id="PID" name="PID" oninput="validateForm()"><br>
         <label for="dropdown">Dropdown:</label><br>
         <select id="dropdown" name="dropdown" onchange="updateOptions()">
-            <option value="default">Select an option</option>
-            <option value="numbers">Numbers</option>
-            <option value="human">Human Names</option>
-            <option value="animal">Animal Names</option>
+            <option value="default">Select the Team</option>
+            <option value="NPP_Change_Team">NPP_Change_Team</option>
+            <option value="NPP_Monitoring_Team">NPP_Monitoring_Team</option>
+            <option value="NPP_Functional_Team">NPP_Functional_Team</option>
         </select><br><br>
         <button id="accessListBtn" onclick="openPopup()" disabled>Access List</button>
     </form>
 
     <script>
         function validateForm() {
-            var apple = document.getElementById("apple").value;
-            var banana = document.getElementById("banana").value;
-            var cherry = document.getElementById("cherry").value;
+            var apple = document.getElementById("Name").value;
+            var banana = document.getElementById("Email").value;
+            var cherry = document.getElementById("PID").value;
             var accessListBtn = document.getElementById("accessListBtn");
             var mandateMarks = document.getElementsByClassName("mandate-mark");
 
-            if (apple !== "" && banana !== "" && cherry !== "") {
+            if (Name !== "" && Email !== "" && PID !== "") {
                 accessListBtn.disabled = false;
                 for (var i = 0; i < mandateMarks.length; i++) {
                     mandateMarks[i].style.color = "black";
